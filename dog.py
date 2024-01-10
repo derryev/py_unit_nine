@@ -28,16 +28,23 @@ class Dog:
             for trick in self.trick_list:
                 print(trick)
 
+    def __str__(self):
+        dog_name = self.dog_name
+        string_list_of_tricks = ", ".join(self.trick_list)
+        return "The dog's name is "+dog_name+". "+dog_name+" has performed the following tricks: "+string_list_of_tricks+"."
 
-dog1 = Dog("Spot")
-dog1.sit()
-dog1.lay_down()
-dog1.cook_dinner()
-dog1.print_trick_list()
 
-dog2 = Dog("Gus")
-dog2.cook_dinner()
-dog2.print_trick_list()
-
-dog3 = Dog("Buc")
-dog3.print_trick_list()
+# dog1 = Dog("Spot")
+# dog1.sit()
+# dog1.lay_down()
+# dog1.cook_dinner()
+# dog1.print_trick_list()
+#
+# dog2 = Dog("Gus")
+# dog2.cook_dinner()
+# dog2.print_trick_list()
+#
+# dog3 = Dog("Buc")
+# dog3.print_trick_list()
+#
+# print(dog1)
