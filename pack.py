@@ -45,7 +45,7 @@ class Pack:
         for member in self.members:
             member.print_trick_list()
 
-    def __str__(self):
+    # def __str__(self):
         # member_string = ""
         # for member in self.members:
         #     member_string += member.get_name
