@@ -17,8 +17,8 @@ new_pack.new_leader(7)
 new_pack.new_leader(2)
 
 new_pack.all_sit()
-dog3.plays_guitar()
-dog2.roll_over()
+dog3.lay_down()
+dog2.cook_dinner()
 
 new_pack.all_print_tricks()
 
