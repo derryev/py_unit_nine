@@ -47,7 +47,7 @@ class Pack:
 
     def __str__(self):
         leader_name = str(self.members[self.leader_index].get_name())
-        return "The leader of the dog pack is "+leader_name+". There are "+str(len(self.members))+" dogs in the pack."
+        return f"Pack: The leader of the dog pack is {self.get_leader_name()}. There are "+str(len(self.members))+" dogs in the pack."
 
 
 dog1 = Dog("Spot")
