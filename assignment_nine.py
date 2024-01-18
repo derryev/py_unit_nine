@@ -49,50 +49,45 @@ def play_round(deck_of_cards, number_to_deal):
         print(p1_card)
         p2_card = deck_of_cards.p2_cards[x]
         print(p2_card)
-        if p1_card['rank'] == p2_card['rank']:
-            print("HIIIIII")
-        elif p1_card['rank'].isdigit() is True:
-            if p2_card['rank'].isdigit is True:
-                if int(p1_card['rank']) > p2_card['rank']:
-                    p1_point_counter = p1_point_counter+1
-                else:
-                    p2_point_counter = p2_point_counter + 1
-        elif p1_card['rank'].isdigit() is False:
-            if p2_card['rank'].isdigit is True:
-                # p1 wins bc if their rank is not a number and p2's is, it will automatically be higher than p2's rank
-                p1_point_counter = p1_point_counter + 1
-        elif p1_card['rank'].isdigit() is True and p2_card['rank'].isdigit is False:
-            # p2 wins bc if their rank is not a number and p1's is, it will automatically be higher than p1's rank
-            p2_point_counter = p2_point_counter + 1
-        elif p1_card['rank'].isdigit() is False and p2_card['rank'].isdigit is False:
-            if p1_card['rank'] == 'A':
-                p1_point_counter = p1_point_counter + 1
-            elif p1_card['rank'] == 'K':
-                if p2_card['rank'] == 'A':
-                    p2_point_counter = p2_point_counter + 1
-                else:
-                    p1_point_counter = p1_point_counter + 1
-            elif p1_card['rank'] == 'Q':
-                if p2_card['rank'] == 'A' or p2_card['rank'] == 'K':
-                    p2_point_counter = p2_point_counter + 1
-                else:
-                    p1_point_counter = p1_point_counter + 1
-            elif p1_card['rank'] == 'J':
-                p2_point_counter = p2_point_counter + 1
+        round_number = x+1
+        if compare_cards(p1_card, p2_card, round_number) is True:
+            print("Player 1 wins this round!")
+            p1_point_counter = p1_point_counter + 1
         else:
-            print("not working lol")
-
+            print("Player 2 wins this round!")
+            p2_point_counter = p2_point_counter + 1
         print(p1_point_counter)
         print(p2_point_counter)
+    if p1_point_counter > p2_point_counter:
+        return True
+    elif p1_point_counter < p2_point_counter:
+        return False
+    else:
+        return "Tie"
 
 
-
-
-
+def compare_cards(p1_card, p2_card, round_number):
+    ranks_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    suits_list = ['♣', '♦', '♥', '♠']
+    print("Round "+str(round_number)+":")
+    print("Player 1:", p1_card['rank'], "of", p1_card['suit'])
+    print("Player 2:", p2_card['rank'], "of", p2_card['suit'])
+    if p1_card['rank'] == p2_card['rank']:
+        # print("a")
+        if suits_list.index(p1_card['suit']) > suits_list.index(p2_card['suit']):
+            return True
+        else:
+            return False
+    else:
+        if ranks_list.index(p1_card['rank']) > ranks_list.index(p2_card['rank']):
+            return True
+        else:
+            return False
 
 
 def main():
     deck_of_cards = Deck()
+    color = Colors()
     welcome_player()
     create_shuffled_card_deck(deck_of_cards)
     number_to_deal = get_input_on_card_number()

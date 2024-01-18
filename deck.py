@@ -11,6 +11,7 @@ class Colors:
     and invisible work with the main class i.e. colors.bold '''
     reset = '\033[0m'
     disable = '\033[02m'
+    bold = '\033[01m'
 
     class Fg:
         black = '\033[30m'
