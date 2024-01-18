@@ -50,3 +50,51 @@ class Pack:
         # for member in self.members:
         #     member_string += member.get_name
         # return member_string
+
+
+
+
+
+def play_round(deck_of_cards, number_to_deal):
+    p1_point_counter = 0
+    p2_point_counter = 0
+    print(deck_of_cards.p1_cards)
+    print(deck_of_cards.p2_cards)
+    for x in range(0, number_to_deal):
+        p1_card = deck_of_cards.p1_cards[x]
+        print(p1_card)
+        p2_card = deck_of_cards.p2_cards[x]
+        print(p2_card)
+        if p1_card['rank'] == p2_card['rank']:
+            print("HIIIIII")
+        elif p1_card['rank'].isdigit() is True or p2_card['rank'].isdigit is True:
+            if int(p1_card['rank']) > p2_card['rank']:
+                p1_point_counter = p1_point_counter+1
+            else:
+                p2_point_counter = p2_point_counter + 1
+        elif p1_card['rank'].isdigit() is False and p2_card['rank'].isdigit is True:
+            # p1 wins bc if their rank is not a number and p2's is, it will automatically be higher than p2's rank
+            p1_point_counter = p1_point_counter + 1
+        elif p1_card['rank'].isdigit() is True and p2_card['rank'].isdigit is False:
+            # p2 wins bc if their rank is not a number and p1's is, it will automatically be higher than p1's rank
+            p2_point_counter = p2_point_counter + 1
+        elif p1_card['rank'].isdigit() is False and p2_card['rank'].isdigit is False:
+            if p1_card['rank'] == 'A':
+                p1_point_counter = p1_point_counter + 1
+            elif p1_card['rank'] == 'K':
+                if p2_card['rank'] == 'A':
+                    p2_point_counter = p2_point_counter + 1
+                else:
+                    p1_point_counter = p1_point_counter + 1
+            elif p1_card['rank'] == 'Q':
+                if p2_card['rank'] == 'A' or p2_card['rank'] == 'K':
+                    p2_point_counter = p2_point_counter + 1
+                else:
+                    p1_point_counter = p1_point_counter + 1
+            elif p1_card['rank'] == 'J':
+                p2_point_counter = p2_point_counter + 1
+        else:
+            print("not working lol")
+
+        print(p1_point_counter)
+        print(p2_point_counter)
