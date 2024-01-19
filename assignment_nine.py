@@ -1,3 +1,7 @@
+# Eva D
+# Jan 18 2024
+# Plays simulation of card game compare with two players.
+
 from deck import Deck
 from deck import Colors
 
