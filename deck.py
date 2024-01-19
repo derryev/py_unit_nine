@@ -1,3 +1,7 @@
+# Eva D.
+# Jan 19 2024
+# Creates a card deck class and a colors class to assist gameplay in the program that simulates a card game of Compare.
+
 import random
 
 

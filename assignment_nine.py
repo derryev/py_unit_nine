@@ -1,5 +1,5 @@
 # Eva D
-# Jan 18 2024
+# Jan 19 2024
 # Plays simulation of card game compare with two players.
 
 from deck import Deck
@@ -11,7 +11,7 @@ def welcome_player():
     Welcomes the player with two print statements welcoming the user and explaining how the game works.
     :return: nothing
     """
-    print("Welcome to the game of compare. You will decide how many cards we get and then we'll play them one by one.")
+    print("Welcome to the game of Compare. You will decide how many cards we get and then we'll play them one by one.")
     print("Whoever has the higher card wins that round. Whoever wins the most rounds wins the game.")
 
 
