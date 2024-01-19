@@ -64,7 +64,7 @@ class Deck:
 
 
 
-deck1 = Deck()
-deck1.show_deck()
-deck1.shuffle_deck()
-deck1.show_deck()
+# deck1 = Deck()
+# deck1.show_deck()
+# deck1.shuffle_deck()
+# deck1.show_deck()

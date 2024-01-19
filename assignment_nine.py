@@ -8,9 +8,9 @@ def welcome_player():
 
 
 def create_shuffled_card_deck(deck_of_cards):
-    deck_of_cards.show_deck()
+    # deck_of_cards.show_deck()
     deck_of_cards.shuffle_deck()
-    deck_of_cards.show_deck()
+    # deck_of_cards.show_deck()
     return deck_of_cards
     # card_deck.show_deck()
 
@@ -33,7 +33,15 @@ def deal_cards(card_deck, number_to_deal):
         print("Dealer deals " + str(number_to_deal) + " cards to each player...")
     print("")
     card_deck.deal_cards(number_to_deal)
-
+    p1_hand_list = []
+    p2_hand_list = []
+    for x in range(number_to_deal):
+        p1_card = card_deck.p1_cards[x]
+        p2_card = card_deck.p2_cards[x]
+        p1_hand_list.append(str(p1_card['rank'])+str(p1_card['suit']))
+        p2_hand_list.append(str(p2_card['rank']) + str(p2_card['suit']))
+    print("Player 1 Hand: "+" ".join(p1_hand_list))
+    print("Player 2 Hand: " + " ".join(p2_hand_list))
     # print(card_deck.p1_cards)
     # print(card_deck.p2_cards)
     # card_deck.show_deck()
@@ -42,13 +50,14 @@ def deal_cards(card_deck, number_to_deal):
 def play_round(deck_of_cards, number_to_deal):
     p1_point_counter = 0
     p2_point_counter = 0
-    print(deck_of_cards.p1_cards)
-    print(deck_of_cards.p2_cards)
+    # print(deck_of_cards.p1_cards)
+    # print(deck_of_cards.p2_cards)
     for x in range(0, number_to_deal):
+        print("")
         p1_card = deck_of_cards.p1_cards[x]
-        print(p1_card)
+        # print(p1_card)
         p2_card = deck_of_cards.p2_cards[x]
-        print(p2_card)
+        # print(p2_card)
         round_number = x+1
         if compare_cards(p1_card, p2_card, round_number) is True:
             print("Player 1 wins this round!")
@@ -56,8 +65,18 @@ def play_round(deck_of_cards, number_to_deal):
         else:
             print("Player 2 wins this round!")
             p2_point_counter = p2_point_counter + 1
-        print(p1_point_counter)
-        print(p2_point_counter)
+        # print(p1_point_counter)
+        # print(p2_point_counter)
+    print("")
+    print("Game over!")
+    if p1_point_counter == 1:
+        print("Player 1 wins:", p1_point_counter, "round")
+    else:
+        print("Player 1 wins:", p1_point_counter, "rounds")
+    if p2_point_counter == 1:
+        print("Player 2 wins:", p2_point_counter, "round")
+    else:
+        print("Player 2 wins:", p2_point_counter, "rounds")
     if p1_point_counter > p2_point_counter:
         return True
     elif p1_point_counter < p2_point_counter:
@@ -92,7 +111,13 @@ def main():
     create_shuffled_card_deck(deck_of_cards)
     number_to_deal = get_input_on_card_number()
     deal_cards(deck_of_cards, number_to_deal)
-    play_round(deck_of_cards, number_to_deal)
+    winner = play_round(deck_of_cards, number_to_deal)
+    if winner is True:
+        print("Player 1 wins the game!")
+    elif winner is False:
+        print("Player 2 wins the game!")
+    else:
+        print("It's a tie!")
     # print(number_to_deal)
 
 
