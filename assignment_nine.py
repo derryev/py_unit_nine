@@ -72,7 +72,7 @@ def play_round(deck_of_cards, number_to_deal):
         # print(p1_point_counter)
         # print(p2_point_counter)
     print("")
-    print("Game over!")
+    print(Colors.BOLD+"Game over!"+Colors.RESET)
     if p1_point_counter == 1:
         print("Player 1 wins:", p1_point_counter, "round")
     else:
@@ -91,8 +91,8 @@ def play_round(deck_of_cards, number_to_deal):
 
 def compare_cards(p1_card, p2_card, round_number):
     ranks_list = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
-    suits_list = ['♣', '♦', '♥', '♠']
-    print("Round "+str(round_number)+":")
+    suits_list = ['♣', Colors.RED+'♦'+Colors.RESET, Colors.RED+'♥'+Colors.RESET, '♠']
+    print(Colors.BOLD+"Round "+str(round_number)+":"+Colors.RESET)
     print("Player 1:", p1_card['rank'], "of", p1_card['suit'])
     print("Player 2:", p2_card['rank'], "of", p2_card['suit'])
     if p1_card['rank'] == p2_card['rank']:
@@ -117,9 +117,9 @@ def main():
     deal_cards(deck_of_cards, number_to_deal)
     winner = play_round(deck_of_cards, number_to_deal)
     if winner is True:
-        print("Player 1 wins the game!")
+        print(Colors.GREEN+"Player 1 wins the game!"+Colors.RESET)
     elif winner is False:
-        print("Player 2 wins the game!")
+        print(Colors.GREEN+"Player 2 wins the game!"+Colors.RESET)
     else:
         print("It's a tie!")
     # print(number_to_deal)

@@ -2,27 +2,19 @@ import random
 
 
 class Colors:
-    # from https://www.geeksforgeeks.org/print-colors-python-terminal/
-    ''' Colors class:reset all colors with colors.reset; two
-    subclasses fg for foreground
-    and bg for background; use as colors.subclass.colorname.
-    i.e. colors.fg.red or colors.bg.green also, the generic bold, disable,
-    underline, reverse, strike through,
-    and invisible work with the main class i.e. colors.bold '''
-    reset = '\033[0m'
-    disable = '\033[02m'
-    bold = '\033[01m'
-
-    class Fg:
-        black = '\033[30m'
-        red = '\033[31m'
+    # the website https://levelup.gitconnected.com/how-to-print-in-color-in-python-without-external-libraries-db6e15e5c03c
+    # helped me figure out how to implement the color codes in the program using the "+"
+    BOLD = "\033[1m"
+    RED = "\033[91m"
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
 
 
 class Deck:
     def __init__(self):
         self.card_deck = []
         self.ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
-        self.suits = {'♣', '♦', '♥', '♠'}
+        self.suits = {'♣', Colors.RED+'♦'+Colors.RESET, Colors.RED+'♥'+Colors.RESET, '♠'}
         self.p1_cards = []
         self.p2_cards = []
         # got from chat gtp/demetri
